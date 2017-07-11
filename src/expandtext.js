@@ -25,4 +25,14 @@ class ExpandText extends React.Component {
   }
 }
 
+ExpandText.propTypes = {
+  text: React.PropTypes.string.isRequired,
+  maxLength: React.PropTypes.number.isRequired,
+  className: React.PropTypes.string
+};
+
+ExpandText.defaultProps = {
+  className: ""
+};
+
 export default ExpandText;
