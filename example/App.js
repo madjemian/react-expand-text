@@ -7,7 +7,7 @@ class App extends React.Component {
     return (
         <div>
             <ExpandText
-                maxLength={100}
+                maxLength={10}
                 className='my-css-class'
                 text={'I am a long string that is longer than max length'}
             />
