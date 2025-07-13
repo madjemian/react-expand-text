@@ -1,19 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import ExpandText from '../src/expandtext.js';
 
-class App extends React.Component {
-  render() {
-    return (
-        <div>
-            <ExpandText
-                maxLength={10}
-                className='my-css-class'
-                text={'I am a long string that is longer than max length'}
-            />
-        </div>
-    );
-  }
-}
+const App = () => {
+  return (
+    <div>
+      <ExpandText
+        maxLength={10}
+        className='my-css-class'
+        text={'I am a long string that is longer than max length'}
+      />
+    </div>
+  );
+};
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(<App />);

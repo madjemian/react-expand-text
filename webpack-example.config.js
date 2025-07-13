@@ -1,4 +1,4 @@
-var path = require('path');
+const path = require('path');
 
 module.exports = {
     entry: './example/App.js',
@@ -7,14 +7,18 @@ module.exports = {
         path: path.resolve(__dirname, 'example')
     },
     module: {
-        loaders: [
+        rules: [
             {
-                loader: 'babel-loader',
-                exclude: /node_modules/,
-                query: {
-                    presets: ['es2015', 'react']
-                }
+                test: /\.js$/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env', '@babel/preset-react']
+                    }
+                },
+                exclude: /node_modules/
             }
         ]
-    }
+    },
+    mode: 'development'
 };

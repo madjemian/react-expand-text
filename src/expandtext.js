@@ -1,38 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-class ExpandText extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            showFull: false
-        };
+const ExpandText = ({ text, maxLength, className = "" }) => {
+    const [showFull, setShowFull] = useState(false);
+
+    let visibleText;
+    if (showFull || text.length <= maxLength) {
+        visibleText = text;
+    } else {
+        const firstHalf = text.substring(0, maxLength / 2);
+        const secondHalf = text.substring(text.length - (maxLength / 2), text.length);
+        visibleText = `${firstHalf}...${secondHalf}`;
     }
 
-    render() {
-        let visibleText = null;
-        if (this.state.showFull || this.props.text.length <= this.props.maxLength) {
-            visibleText = this.props.text;
-        } else {
-            const firstHalf = this.props.text.substring(0, this.props.maxLength / 2);
-            const secondHalf = this.props.text.substring(this.props.text.length - (this.props.maxLength / 2), this.props.text.length)
-            visibleText = `${firstHalf}...${secondHalf}`;
-        }
-        const self = this;
-        const clickHandler = () => {
-            self.setState({showFull: !self.state.showFull});
-        }
-        return <span onClick={clickHandler} className={this.props.className}>{visibleText}</span>;
-  }
-}
+    const handleClick = () => {
+        setShowFull(!showFull);
+    };
 
-ExpandText.propTypes = {
-  text: React.PropTypes.string.isRequired,
-  maxLength: React.PropTypes.number.isRequired,
-  className: React.PropTypes.string
+    return <span onClick={handleClick} className={className}>{visibleText}</span>;
 };
 
-ExpandText.defaultProps = {
-  className: ""
+ExpandText.propTypes = {
+  text: PropTypes.string.isRequired,
+  maxLength: PropTypes.number.isRequired,
+  className: PropTypes.string
 };
 
 export default ExpandText;
