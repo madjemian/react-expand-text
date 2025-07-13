@@ -1,5 +1,5 @@
 # react-expand-text
-A simple React component that shrinks and expands long text. If the `text` length is
+A modern React component that shrinks and expands long text. If the `text` length is
 longer than `maxLength` the text field will collapse, and truncated text will be replaced
 with an ellipsis. Clicking the text will alternately expand/collapse the long text.
 
@@ -8,37 +8,48 @@ with an ellipsis. Clicking the text will alternately expand/collapse the long te
 npm install --save react-expand-text
 ```
 
+## Requirements
+- Node.js >= 18.0.0
+- React >= 18.0.0
+
 ## Usage
 ```javascript
-ExpandText.propTypes = {
-  text: React.PropTypes.string.isRequired,
-  maxLength: React.PropTypes.number.isRequired,
-  className: React.PropTypes.string
+import React from 'react';
+import ExpandText from 'react-expand-text';
+
+const MyComponent = () => {
+  return (
+    <ExpandText
+      text="Your long text here"
+      maxLength={50}
+      className="optional-css-class"
+    />
+  );
 };
 ```
 
 ### Props
-* `text`: Text to display
-* `maxLength`: Max length of text
-* `className`: *Optional* class name to be applied to the inner span
+* `text`: Text to display (string, required)
+* `maxLength`: Max length of text (number, required)
+* `className`: Optional CSS class name to be applied to the span element
 
 ## Example
 ```javascript
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import ExpandText from 'react-expand-text';
 
-class App extends React.Component {
-  render() {
-    return (
-      <ExpandText
-        maxLength={10}
-        className='my-css-class'
-        text={'I am a long string that is longer than max length'}
-      />
-    );
-  }
-}
+const App = () => {
+  return (
+    <ExpandText
+      maxLength={10}
+      className='my-css-class'
+      text={'I am a long string that is longer than max length'}
+    />
+  );
+};
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(<App />);
 ```
