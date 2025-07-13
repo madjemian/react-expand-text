@@ -1,6 +1,6 @@
 {
   "name": "react-expand-text",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A simple react component that shrinks and expands long text",
   "main": "index.js",
   "scripts": {
@@ -18,6 +18,9 @@
     "url": "https://github.com/madjemian/react-expand-text/issues"
   },
   "homepage": "https://github.com/madjemian/react-expand-text#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
