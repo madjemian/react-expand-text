@@ -1,5 +1,5 @@
 # react-expand-text
-A modern React component that shrinks and expands long text. If the `text` length is
+A simple React component that shrinks and expands long text. If the `text` length is
 longer than `maxLength` the text field will collapse, and truncated text will be replaced
 with an ellipsis. Clicking the text will alternately expand/collapse the long text.
 
