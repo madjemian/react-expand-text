@@ -4,6 +4,8 @@ longer than `maxLength` the text field will collapse, and truncated text will be
 with an ellipsis. The ellipsis can be placed in the middle (default) or at the end of the text.
 Clicking the text will alternately expand/collapse the long text.
 
+**Now with full TypeScript support!** 🚀
+
 ## Installation
 ```bash
 npm install --save react-expand-text
@@ -14,6 +16,24 @@ npm install --save react-expand-text
 - React >= 18.0.0
 
 ## Usage
+
+### TypeScript
+```tsx
+import React from 'react';
+import ExpandText from 'react-expand-text';
+
+const MyComponent: React.FC = () => {
+  return (
+    <ExpandText
+      text="Your long text here"
+      maxLength={50}
+      className="optional-css-class"
+    />
+  );
+};
+```
+
+### JavaScript
 ```javascript
 import React from 'react';
 import ExpandText from 'react-expand-text';

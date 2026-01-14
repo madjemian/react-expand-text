@@ -1,7 +1,18 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 
-const ExpandText = ({ text, maxLength, className = "", truncateAtEnd = false }) => {
+interface ExpandTextProps {
+  text: string;
+  maxLength: number;
+  className?: string;
+  truncateAtEnd?: boolean;
+}
+
+const ExpandText: React.FC<ExpandTextProps> = ({ 
+  text, 
+  maxLength, 
+  className = "", 
+  truncateAtEnd = false 
+}) => {
     const [showFull, setShowFull] = useState(false);
 
     let visibleText;
@@ -22,13 +33,6 @@ const ExpandText = ({ text, maxLength, className = "", truncateAtEnd = false }) 
     };
 
     return <span onClick={handleClick} className={className}>{visibleText}</span>;
-};
-
-ExpandText.propTypes = {
-  text: PropTypes.string.isRequired,
-  maxLength: PropTypes.number.isRequired,
-  className: PropTypes.string,
-  truncateAtEnd: PropTypes.bool
 };
 
 export default ExpandText;
