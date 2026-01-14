@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import ExpandText from '../src/expandtext';
+import ExpandText from '../index.js';
 
 const App = () => {
   return (
